@@ -1,15 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080c18">
-<meta name="description" content="روابطي وحساباتي الاجتماعية">
-<title>روابطي الشخصية</title>
+<meta name="theme-color" content="#070d1c">
+<meta name="description" content="الصفحة الرسمية للدكتور عامر علوان الطائي">
+<title>د. عامر علوان الطائي | الروابط الرسمية</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+:root {
+    --bg: #070d1c;
+    --blue: #2789ff;
+    --cyan: #45d9ff;
+    --text: #f3f7ff;
+    --muted: #899bb9;
+}
 
 * {
     margin: 0;
@@ -20,130 +29,296 @@
 body {
     font-family: 'Cairo', sans-serif;
     min-height: 100vh;
-    color: white;
+    color: var(--text);
     background:
-        radial-gradient(circle at 15% 15%, #192d5a 0, transparent 35%),
-        radial-gradient(circle at 85% 85%, #31205b 0, transparent 35%),
-        #080c18;
+        radial-gradient(ellipse at 50% 0%, #153c72 0%, transparent 48%),
+        radial-gradient(circle at 0% 90%, #142a52 0%, transparent 35%),
+        radial-gradient(circle at 100% 70%, #15214a 0%, transparent 35%),
+        var(--bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    padding: 35px 18px;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .15;
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 45px 45px;
 }
 
 .container {
     width: 100%;
-    max-width: 440px;
+    max-width: 470px;
+    position: relative;
+    z-index: 1;
+    animation: appear 1s ease both;
 }
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* PROFILE */
 
 .profile {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 32px;
+}
+
+.avatar-wrapper {
+    width: 160px;
+    height: 160px;
+    padding: 5px;
+    margin: 0 auto 23px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #48dfff, #2679ff, #825cff);
+    box-shadow:
+        0 0 25px #258bff55,
+        0 0 70px #258bff22;
+    position: relative;
+}
+
+.avatar-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border: 1px solid #46c9ff44;
+    border-radius: 50%;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); opacity: .5; }
+    50% { transform: scale(1.08); opacity: 1; }
 }
 
 .avatar {
-    width: 105px;
-    height: 105px;
-    margin: 0 auto 20px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg,#4169e1,#8b5cf6);
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+    background: #14294a;
+    border: 3px solid #0b1730;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.verified {
+    display: inline-flex;
     align-items: center;
-    font-size: 35px;
-    font-weight: 800;
-    box-shadow: 0 0 35px #4169e155;
-    border: 3px solid #ffffff22;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 30px;
+    color: #70dfff;
+    background: #168bff18;
+    border: 1px solid #168bff44;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.verified span {
+    color: #39d9ff;
 }
 
 .profile h1 {
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 8px;
+    font-size: 27px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 5px;
 }
 
-.profile p {
-    color: #9ba9c7;
+.specialty {
     font-size: 14px;
+    color: #67caff;
+    font-weight: 700;
 }
+
+.description {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 9px;
+    line-height: 2;
+}
+
+/* DIVIDER */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+    color: #9fb2d1;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, #3a83c966);
+}
+
+/* SOCIAL LINKS */
 
 .links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 13px;
 }
 
 .social-card {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 17px 20px;
-    background: rgba(255,255,255,0.045);
-    border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 18px;
-    backdrop-filter: blur(15px);
-    transition: 0.3s ease;
+    padding: 15px 17px;
+    background: linear-gradient(120deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 19px;
     text-decoration: none;
     color: white;
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+    transition: .35s ease;
+}
+
+.social-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(100deg,
+        transparent,
+        rgba(255,255,255,.09),
+        transparent);
+    transition: .6s;
+}
+
+.social-card:hover::before {
+    left: 100%;
 }
 
 .social-card:hover {
     transform: translateY(-4px);
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(255,255,255,0.2);
+    border-color: #43baff88;
+    box-shadow: 0 10px 30px #087bff22;
+    background: rgba(35,115,200,.12);
 }
 
 .icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 15px;
+    width: 53px;
+    height: 53px;
+    min-width: 53px;
+    border-radius: 16px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 800;
+    box-shadow: inset 0 1px 5px #ffffff33;
 }
 
-.facebook .icon { background: #1877f2; }
-.tiktok .icon {
-    background: #171717;
-    border: 1px solid #444;
+.icon svg {
+    width: 26px;
+    height: 26px;
+    fill: white;
 }
-.whatsapp .icon { background: #25d366; }
 
-.details { flex: 1; }
+.facebook .icon { background: linear-gradient(135deg,#1877f2,#0754bc); }
+.tiktok .icon { background: linear-gradient(135deg,#252525,#090909); }
+.whatsapp .icon { background: linear-gradient(135deg,#32e77d,#079c58); }
+
+.details {
+    flex: 1;
+}
 
 .details h2 {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
 }
 
 .details span {
-    color: #8b98b5;
-    font-size: 12px;
+    font-size: 11px;
+    color: #91a4c3;
 }
 
 .arrow {
-    color: #71809e;
-    font-size: 22px;
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #ffffff0b;
+    color: #6ebfff;
+    font-size: 19px;
+    transition: .3s;
+}
+
+.social-card:hover .arrow {
+    background: #258bff33;
+    transform: translateX(-4px);
 }
 
 .disabled {
-    opacity: 0.65;
+    opacity: .55;
     cursor: default;
 }
 
-.disabled:hover { transform: none; }
+.disabled:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255,255,255,.10);
+}
+
+/* FOOTER */
 
 .footer {
     text-align: center;
-    margin-top: 35px;
-    color: #65728d;
-    font-size: 12px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff12;
+    color: #7386a6;
+    font-size: 11px;
 }
 
-.footer span { color: #8b5cf6; }
+.footer span {
+    color: #42bfff;
+}
 
+.footer .brand {
+    display: block;
+    margin-top: 5px;
+    color: #a3b5d0;
+    font-size: 10px;
+}
+
+@media(max-width:400px) {
+    .profile h1 { font-size: 23px; }
+    .avatar-wrapper { width: 140px; height: 140px; }
+    .social-card { padding: 13px; }
+}
 </style>
 </head>
 
@@ -152,54 +327,105 @@ body {
 <main class="container">
 
     <section class="profile">
-        <div class="avatar">M</div>
-        <h1>روابطي الشخصية</h1>
-        <p>تواصل معي عبر حساباتي الاجتماعية</p>
+
+        <div class="avatar-wrapper">
+            <div class="avatar">
+                <img src="DoCTOR.jpeg"
+                     alt="صورة الدكتور عامر علوان الطائي">
+            </div>
+        </div>
+
+        <div class="verified">
+            <span>✦</span>
+            الصفحة الرسمية
+        </div>
+
+        <h1>د. عامر علوان الطائي</h1>
+
+        <div class="specialty">
+            اختصاص جراحة المسالك البولية
+        </div>
+
+        <p class="description">
+            مرحباً بكم في صفحتي الرسمية
+            <br>
+            يمكنكم التواصل ومتابعة حساباتي من خلال الروابط أدناه
+        </p>
+
     </section>
+
+    <div class="section-title">
+        حساباتي ووسائل التواصل
+    </div>
 
     <section class="links">
 
         <a class="social-card facebook disabled"
-           id="facebook" target="_blank">
-            <div class="icon">f</div>
+           id="facebook" target="_blank"
+           rel="noopener noreferrer">
+
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
+                </svg>
+            </div>
+
             <div class="details">
                 <h2>Facebook</h2>
-                <span>حسابي على فيسبوك</span>
+                <span>تابع صفحتي على فيسبوك</span>
             </div>
+
             <div class="arrow">←</div>
         </a>
 
         <a class="social-card tiktok disabled"
-           id="tiktok" target="_blank">
-            <div class="icon">♪</div>
+           id="tiktok" target="_blank"
+           rel="noopener noreferrer">
+
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19.6 7.1a5.9 5.9 0 0 1-3.5-1.1v7.5a5.8 5.8 0 1 1-5.8-5.8c.4 0 .8 0 1.2.1v3.2a2.7 2.7 0 1 0 1.6 2.5V2h3.1c.3 2.3 1.7 3.8 3.4 4.1v3.1z"/>
+                </svg>
+            </div>
+
             <div class="details">
                 <h2>TikTok</h2>
-                <span>تابعني على تيك توك</span>
+                <span>شاهد محتواي على تيك توك</span>
             </div>
+
             <div class="arrow">←</div>
         </a>
 
         <a class="social-card whatsapp disabled"
-           id="whatsapp" target="_blank">
-            <div class="icon">☎</div>
+           id="whatsapp" target="_blank"
+           rel="noopener noreferrer">
+
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.4l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.2 1 .4 1.3.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.2-1.2-.1-.2-.2-.2-.4-.3z"/>
+                </svg>
+            </div>
+
             <div class="details">
                 <h2>WhatsApp</h2>
                 <span>تواصل معي مباشرة</span>
             </div>
+
             <div class="arrow">←</div>
         </a>
 
     </section>
 
     <footer class="footer">
-        Made with <span>♥</span>
+        Designed with <span>♥</span>
+        <div class="brand">Official Medical Profile</div>
     </footer>
 
 </main>
 
 <script>
 
-// أضف روابط حساباتك هنا لاحقاً
+// أضف روابط الحسابات هنا
 
 const socialLinks = {
     facebook: "",
@@ -208,15 +434,17 @@ const socialLinks = {
 };
 
 Object.keys(socialLinks).forEach(platform => {
-    const element = document.getElementById(platform);
-    const link = socialLinks[platform];
 
-    if (link.trim() !== "") {
+    const element = document.getElementById(platform);
+    const link = socialLinks[platform].trim();
+
+    if (link !== "") {
         element.href = link;
         element.classList.remove("disabled");
     } else {
         element.removeAttribute("href");
     }
+
 });
 
 </script>
