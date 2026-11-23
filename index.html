@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -245,9 +246,17 @@ body::before {
     fill: white;
 }
 
-.facebook .icon { background: linear-gradient(135deg,#1877f2,#0754bc); }
-.tiktok .icon { background: linear-gradient(135deg,#252525,#090909); }
-.whatsapp .icon { background: linear-gradient(135deg,#32e77d,#079c58); }
+.facebook .icon {
+    background: linear-gradient(135deg,#1877f2,#0754bc);
+}
+
+.tiktok .icon {
+    background: linear-gradient(135deg,#252525,#090909);
+}
+
+.whatsapp .icon {
+    background: linear-gradient(135deg,#32e77d,#079c58);
+}
 
 .details {
     flex: 1;
@@ -281,17 +290,6 @@ body::before {
     transform: translateX(-4px);
 }
 
-.disabled {
-    opacity: .55;
-    cursor: default;
-}
-
-.disabled:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: rgba(255,255,255,.10);
-}
-
 /* FOOTER */
 
 .footer {
@@ -318,6 +316,13 @@ body::before {
     .profile h1 { font-size: 23px; }
     .avatar-wrapper { width: 140px; height: 140px; }
     .social-card { padding: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
 }
 </style>
 </head>
@@ -354,8 +359,12 @@ body::before {
 
     <section class="links">
 
-        <a class="social-card facebook disabled"
-           id="facebook" target="_blank"
+        <!-- FACEBOOK -->
+
+        <a class="social-card facebook"
+           id="facebook"
+           href="https://www.facebook.com/share/19pKr8aSmD/"
+           target="_blank"
            rel="noopener noreferrer">
 
             <div class="icon">
@@ -372,8 +381,12 @@ body::before {
             <div class="arrow">←</div>
         </a>
 
-        <a class="social-card tiktok disabled"
-           id="tiktok" target="_blank"
+        <!-- TIKTOK -->
+
+        <a class="social-card tiktok"
+           id="tiktok"
+           href="https://www.tiktok.com/@a.f.t.1982?_r=1&_t=ZS-9BeL0maD4NE"
+           target="_blank"
            rel="noopener noreferrer">
 
             <div class="icon">
@@ -390,8 +403,12 @@ body::before {
             <div class="arrow">←</div>
         </a>
 
-        <a class="social-card whatsapp disabled"
-           id="whatsapp" target="_blank"
+        <!-- WHATSAPP -->
+
+        <a class="social-card whatsapp"
+           id="whatsapp"
+           href="https://wa.me/9647711115821"
+           target="_blank"
            rel="noopener noreferrer">
 
             <div class="icon">
@@ -416,32 +433,6 @@ body::before {
     </footer>
 
 </main>
-
-<script>
-
-// أضف روابط الحسابات هنا
-
-const socialLinks = {
-    facebook: "",
-    tiktok: "",
-    whatsapp: ""
-};
-
-Object.keys(socialLinks).forEach(platform => {
-
-    const element = document.getElementById(platform);
-    const link = socialLinks[platform].trim();
-
-    if (link !== "") {
-        element.href = link;
-        element.classList.remove("disabled");
-    } else {
-        element.removeAttribute("href");
-    }
-
-});
-
-</script>
 
 </body>
 </html>
