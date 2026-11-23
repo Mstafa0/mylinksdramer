@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080c18">
+<meta name="description" content="روابطي وحساباتي الاجتماعية">
+<title>روابطي الشخصية</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    min-height: 100vh;
+    color: white;
+    background:
+        radial-gradient(circle at 15% 15%, #192d5a 0, transparent 35%),
+        radial-gradient(circle at 85% 85%, #31205b 0, transparent 35%),
+        #080c18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 440px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.avatar {
+    width: 105px;
+    height: 105px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#4169e1,#8b5cf6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 800;
+    box-shadow: 0 0 35px #4169e155;
+    border: 3px solid #ffffff22;
+}
+
+.profile h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.profile p {
+    color: #9ba9c7;
+    font-size: 14px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 20px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+    backdrop-filter: blur(15px);
+    transition: 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.social-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.facebook .icon { background: #1877f2; }
+.tiktok .icon {
+    background: #171717;
+    border: 1px solid #444;
+}
+.whatsapp .icon { background: #25d366; }
+
+.details { flex: 1; }
+
+.details h2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.details span {
+    color: #8b98b5;
+    font-size: 12px;
+}
+
+.arrow {
+    color: #71809e;
+    font-size: 22px;
+}
+
+.disabled {
+    opacity: 0.65;
+    cursor: default;
+}
+
+.disabled:hover { transform: none; }
+
+.footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #65728d;
+    font-size: 12px;
+}
+
+.footer span { color: #8b5cf6; }
+
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <section class="profile">
+        <div class="avatar">M</div>
+        <h1>روابطي الشخصية</h1>
+        <p>تواصل معي عبر حساباتي الاجتماعية</p>
+    </section>
+
+    <section class="links">
+
+        <a class="social-card facebook disabled"
+           id="facebook" target="_blank">
+            <div class="icon">f</div>
+            <div class="details">
+                <h2>Facebook</h2>
+                <span>حسابي على فيسبوك</span>
+            </div>
+            <div class="arrow">←</div>
+        </a>
+
+        <a class="social-card tiktok disabled"
+           id="tiktok" target="_blank">
+            <div class="icon">♪</div>
+            <div class="details">
+                <h2>TikTok</h2>
+                <span>تابعني على تيك توك</span>
+            </div>
+            <div class="arrow">←</div>
+        </a>
+
+        <a class="social-card whatsapp disabled"
+           id="whatsapp" target="_blank">
+            <div class="icon">☎</div>
+            <div class="details">
+                <h2>WhatsApp</h2>
+                <span>تواصل معي مباشرة</span>
+            </div>
+            <div class="arrow">←</div>
+        </a>
+
+    </section>
+
+    <footer class="footer">
+        Made with <span>♥</span>
+    </footer>
+
+</main>
+
+<script>
+
+// أضف روابط حساباتك هنا لاحقاً
+
+const socialLinks = {
+    facebook: "",
+    tiktok: "",
+    whatsapp: ""
+};
+
+Object.keys(socialLinks).forEach(platform => {
+    const element = document.getElementById(platform);
+    const link = socialLinks[platform];
+
+    if (link.trim() !== "") {
+        element.href = link;
+        element.classList.remove("disabled");
+    } else {
+        element.removeAttribute("href");
+    }
+});
+
+</script>
+
+</body>
+</html>
